@@ -1,0 +1,17 @@
+#mapid {
+  height: 600px;
+}
+
+#Progress-status {
+    width: 50%;
+    background-color:white;
+}
+
+#myProgressBar {
+    width: 1%;
+    height: 35px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 32px;
+    color: black;
+}
