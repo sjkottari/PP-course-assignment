@@ -20,11 +20,34 @@
     <h2>My Map</h2>
 
     <div id="Progress-status">
-        <div id="myProgressBar"></div>
+      <div id="myProgressBar"></div>
     </div>
-    <br>
+    <br />
     <button onclick="update()">Start</button>
     <script src="../src/script.js"></script>
+
+    <div id="popup-example"></div>
+    <script>
+      function myPopup(myURL, title, myWidth, myHeight) {
+        var left = (screen.width - myWidth) / 2;
+        var top = (screen.height - myHeight) / 4;
+        var myWindow = window.open(
+          myURL,
+          title,
+          "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=" +
+            myWidth +
+            ", height=" +
+            myHeight +
+            ", top=" +
+            top +
+            ", left=" +
+            left
+        );
+      }
+    </script>
+    <button onclick=" myPopup ('http://www.google.com', 'web', 1050, 550);">
+      Open Google.com
+    </button>
 
     <div id="mapid"></div>
     <script src="../src/script.js"></script>

@@ -1,3 +1,4 @@
+
 // Progress bar test
 function update() {
     var element = document.getElementById("myProgressBar");
@@ -27,14 +28,14 @@ marker.bindPopup("<b>Hello world!</b><br>I am a popup.");
 
 // 2. Pinni jossa on mukana kuva
 var picMarker = L.marker([65.06389, 25.48390]).addTo(mymap);
-var picPopup = L.popup({maxHeight : 200});
+var picPopup = L.popup({ maxHeight: 200 });
 function pictureClick(e) {
     picPopup
-            .setContent('<img src="https://static.pexels.com/photos/189349/pexels-photo-189349.jpeg" height="200px "width="200px"/>'
-                      + '<br>Look at this beautiful pic<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod '
-                      + 'tempor incididunt ut labore et dolore magna aliqua. Arcu risus quis varius quam quisque id diam. Faucibus '
-                      + 'scelerisque eleifend donec pretium vulputate.')
-            .openOn(mymap);
+        .setContent('<img src="https://static.pexels.com/photos/189349/pexels-photo-189349.jpeg" height="200px "width="200px"/>'
+            + '<br>Look at this beautiful pic<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod '
+            + 'tempor incididunt ut labore et dolore magna aliqua. Arcu risus quis varius quam quisque id diam. Faucibus '
+            + 'scelerisque eleifend donec pretium vulputate.')
+        .openOn(mymap);
 }
 picMarker.bindPopup(picPopup).on("click", pictureClick);
 
@@ -46,5 +47,38 @@ function onMapClick(e) {
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(mymap);
 }
-
 mymap.on("click", onMapClick);
+
+/*
+var testMarker = L.marker([65.03048297027293, 25.411479986524917]).addTo(mymap);
+var buttonPopup = L.popup();
+
+var container = L.DomUtil.create('div');
+startBtn = this.createButton('Start from this location', container),
+destBtn = this.createButton('Go to this location', container);
+div.innerHTML = ''+startBtn+ '&nbsp;&nbsp;&nbsp;&nbsp;' + destBtn ; 
+
+function popupButtons(e) {
+    buttonPopup
+        .setLatLng(e.latlng)
+        .setContent('You clicked the map at ' + e.latlng.toString() + '<br>')
+        .openOn(mymap);
+}
+
+L.DomEvent.on(startBtn, 'click', () => {
+    alert("toto");
+});
+  
+L.DomEvent.on(destBtn, 'click', () => {
+    alert("tata");
+});
+
+function createButton(label: string, container: any) {
+    var btn = L.DomUtil.create('button', '', container);
+    btn.setAttribute('type', 'button');
+    btn.innerHTML = label;
+    return btn;
+}
+
+testMarker.bindPopup(buttonPopup).on("click", popupButtons);
+*/
