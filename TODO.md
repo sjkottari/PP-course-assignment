@@ -2,9 +2,9 @@
 
 ## TODO
 
-- Pop upeihin kuvia, videoita... Muuta toiminnallisuutta kuin tekstiä? Esimerkiksi vieritettävä popup-näkymä
-- Popupien klikkaaminen kasvattaa progress barin scorea? Popupeista voisi avautua monivalintakysely, jonka oikein suorittaminen kasvattaisi scorea? Tätä voisi kokeilla toteuttaa.
-    - Vaihtoehtoisesti sivun reunassa (alhaalla) voisi olla yksi kyselylinkki, josta avautuu popup ja jonka voi suorittaa scoren kasvattamiseksi.
+- Pop upeihin kuvia, videoita... Muuta toiminnallisuutta kuin tekstiä? Esimerkiksi vieritettävä popup-näkymä `done`
+- `Popupien klikkaaminen kasvattaa progress barin scorea? Popupeista voisi avautua monivalintakysely, jonka oikein suorittaminen kasvattaisi scorea? Tätä voisi kokeilla toteuttaa. `
+  - Vaihtoehtoisesti sivun reunassa (alhaalla) voisi olla yksi kyselylinkki, josta avautuu popup ja jonka voi suorittaa scoren kasvattamiseksi.
 - Kun score on MAX, tulee koko näkymän popup, jossa saa viimeisen(?) badgen ja kenties fuksipisteitä?
 - Progress barin edetessä (scorea saadaan) käyttäjä saa erilaisia badgeja (iso popup-ikkuna)
 
@@ -19,17 +19,24 @@
 
 ```javascript
 // Leaflet base map
-this.map = L.map('mapScreen', {
-            center: new L.LatLng(LAT, LNG),
-            zoom: this.state.currentZoom,
-            maxZoom: 18,
-            minZoom:7,
-            maxBounds: bounds,
-            zoomControl: true,
-            layers: new L.TileLayer( 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="//openstreetmap.org/copyright">OpenStreetMap</a>',
-                subdomains: ['a','b','c']
-            })
-            
-        }, 100)
+this.map = L.map(
+  "mapScreen",
+  {
+    center: new L.LatLng(LAT, LNG),
+    zoom: this.state.currentZoom,
+    maxZoom: 18,
+    minZoom: 7,
+    maxBounds: bounds,
+    zoomControl: true,
+    layers: new L.TileLayer(
+      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      {
+        attribution:
+          '&copy; <a href="//openstreetmap.org/copyright">OpenStreetMap</a>',
+        subdomains: ["a", "b", "c"],
+      }
+    ),
+  },
+  100
+);
 ```
