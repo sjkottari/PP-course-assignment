@@ -25,30 +25,16 @@
     <br />
     <button onclick="update()">Start</button>
 
-    <div id="popup-example"></div>
-    <script>
-      function myPopup(myURL, title, myWidth, myHeight) {
-        var left = (screen.width - myWidth) / 2;
-        var top = (screen.height - myHeight) / 4;
-        var myWindow = window.open(
-          myURL,
-          title,
-          "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=" +
-            myWidth +
-            ", height=" +
-            myHeight +
-            ", top=" +
-            top +
-            ", left=" +
-            left
-        );
-      }
-    </script>
-    <button onclick=" myPopup ('http://www.google.com', 'web', 1050, 550);">
-      Open Google.com
-    </button>
-
     <div id="mapid"></div>
+    
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="survey-content"></p>
+      </div>
+    </div>
     <script src="../src/script.js"></script>
+
   </body>
 </html>
