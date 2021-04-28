@@ -25,7 +25,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 // value on pointteri joka osoittaa toiseen valueen?
 places =
     '[{\
-        "index": 1,\
+        "index": 0,\
         "name": "nimi1",\
         "description": "desc1",\
         "coordinates": {\
@@ -40,7 +40,7 @@ places =
         }\
 	},\
 	{\
-        "index": 2,\
+        "index": 1,\
 		"name": "nimi2",\
 		"description": "desc2",\
         "image" : "https://static.pexels.com/photos/189349/pexels-photo-189349.jpeg",\
@@ -48,11 +48,11 @@ places =
 			"lat": 65.06389,\
 			"lng": 25.4839\
 		},\
-        "question": "que?",\
-        "answer": "ans1",\
+        "question": "kuvakysymys",\
+        "answer": "kuvavastaus",\
         "choices": {\
-            "choice1": "ans2",\
-            "choice2": "ans3"\
+            "choice1": "vaihtoehto1",\
+            "choice2": "vaihtoehto2"\
         }\
 	}\
 ]\
@@ -63,9 +63,9 @@ let placesJSON = JSON.parse(places);
 const createPopupContent = (place) => {
     // Joko täällä sisällä nappi popuppiin (jos lähtee toimimaan) tai jollain muulla tavalla.
     if (place.image) { // Voidaan tarkistaa onko paikassa kuva
-        return `<img src="${place.image}" height="200px "width="200px"/><h2>This is ${place.name}</h2><p>${place.description}</p>`;
+        return `<img src="${place.image}" height="200px "width="200px"/><h2>This is ${place.name}</h2><p>${place.description}</p> <button id="${place.name}" onclick="createSurvey(${place.index})">${place.name}-kysely</button>`;
     }
-    return `<h2>This is ${place.name}</h2><p>${place.description}</p> <button id="${place.name}" onclick="createSurvey(${place.index});">${place.name}-kysely</button>`;
+    return `<h2>This is ${place.name}</h2><p>${place.description}</p> <button id="${place.name}" onclick="createSurvey(${place.index})">${place.name}-kysely</button>`;
 };
 
 // Luodaan marker
@@ -101,11 +101,18 @@ window.onclick = function (event) {
 
 function createSurvey(index) {
     modal.style.display = "block";
-    //let platsi = placesJSON[index];
+    var place = placesJSON[index];
+    document.getElementById("survey-content").innerHTML = createSurveyContent(place);
 }
 
-//document.getElementById("survey-content").innerHTML = createSurvey()
+function createSurveyContent(place) {
 
+    var kysymys = place.question;
+    let vastaus = place.answer;
+    let { choice1, choice2 } = place.choices;
+
+    return `<p>${kysymys}<br>${vastaus} ${choice1} ${choice2}</p> <button id="${place.name}" onclick="update();">${place.answer}</button>`;
+}
 
 // Generic pinnin luominen kartalle
 var popup = L.popup();
