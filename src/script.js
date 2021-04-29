@@ -14,6 +14,9 @@ function update(points) {
             element.style.width = currentStep + '%';
         }
     }
+    if (currentStep == MAX_STEPS) {
+        alert("congrats!");
+    }
 }
 
 // Itse kartan luonti
@@ -34,10 +37,17 @@ places =
             "lng": 25.46508\
         },\
         "question": "que?",\
-        "answer": "ans1",\
-        "choices": {\
-            "choice1": "ans2",\
-            "choice2": "ans3"\
+        "choice1": {\
+            "answer1": "ans1",\
+            "isCorrect1": true\
+        },\
+        "choice2": {\
+            "answer2": "ans2",\
+            "isCorrect2": false\
+        },\
+        "choice3": {\
+            "answer3": "ans3",\
+            "isCorrect3": false\
         },\
         "points": 25\
 	},\
@@ -51,13 +61,19 @@ places =
 			"lng": 25.4839\
 		},\
         "question": "kuvakysymys",\
-        "answer": "kuvavastaus",\
-        "choices": {\
-            "choice1": "vaihtoehto1",\
-            "choice2": "vaihtoehto2"\
+        "choice1": {\
+            "answer1": "ans1",\
+            "isCorrect1": true\
         },\
-        "points": 25,\
-        "token": false\
+        "choice2": {\
+            "answer2": "ans2",\
+            "isCorrect2": false\
+        },\
+        "choice3": {\
+            "answer3": "ans3",\
+            "isCorrect3": false\
+        },\
+        "points": 25\
 	}\
 ]\
 ';
@@ -68,9 +84,11 @@ const createPopupContent = (place) => {
     console.log(place)
     // Joko täällä sisällä nappi popuppiin (jos lähtee toimimaan) tai jollain muulla tavalla.
     if (place.image) { // Voidaan tarkistaa onko paikassa kuva
-        return `<img src="${place.image}" height="200px "width="200px"/><h2>This is ${place.name}</h2><p>${place.description}</p> <button id="${place.name}" onclick="createSurvey(${place.index})">${place.name}-kysely</button>`;
+        return `<img src="${place.image}" height="200px "width="200px"/><h2>This is ${place.name}</h2><p>${place.description}</p> 
+                <button id="${place.name}" onclick="createSurvey(${place.index})">${place.name}-kysely</button>`;
     }
-    return `<h2>This is ${place.name}</h2><p>${place.description}</p> <button id="${place.name}" onclick="createSurvey(${place.index})">${place.name}-kysely</button>`;
+    return `<h2>This is ${place.name}</h2><p>${place.description}</p> 
+            <button id="${place.name}" onclick="createSurvey(${place.index})">${place.name}-kysely</button>`;
 };
 
 // Luodaan marker
@@ -111,11 +129,28 @@ function createSurvey(index) {
 }
 
 function createSurveyContent(place) {
-    var kysymys = place.question;
-    let vastaus = place.answer;
-    let { choice1, choice2 } = place.choices;
+    let kysymys = place.question;
+    let { answer1, isCorrect1 } = place.choice1;
+    let { answer2, isCorrect2 } = place.choice2;
+    let { answer3, isCorrect3 } = place.choice3;
 
-    return `<p>${kysymys}<br>${vastaus} ${choice1} ${choice2}</p> <button id="${place.name}" onclick="update(${place.points});">${place.answer}</button>`;
+    return `<p>${kysymys}<br><br>a) ${answer1}<br>b) ${answer2}<br>c) ${answer3}</p>
+    <button id="${answer1}" onclick="checkAnswer(${place.points}, ${isCorrect1}, ${place.index});">a.</button>
+    <button id="${answer2}" onclick="checkAnswer(${place.points}, ${isCorrect2}, ${place.index});">b.</button>
+    <button id="${answer3}" onclick="checkAnswer(${place.points}, ${isCorrect3}, ${place.index});">c.</button>`;
+}
+
+var alreadyAnswered = [];
+
+function checkAnswer(points, token, index) {
+    if (token == true && !alreadyAnswered.includes(index)) {
+        update(points);
+        alreadyAnswered.push(index);
+    } else if (alreadyAnswered.includes(index) && token == true) {
+        alert("You have already answered!");
+    } else {
+        alert("Try again!");
+    }
 }
 
 // Generic pinnin luominen kartalle
