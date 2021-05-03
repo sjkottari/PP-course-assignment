@@ -205,7 +205,7 @@ function checkAnswer(points, token, index) {
     if (token == true && !alreadyAnswered.includes(index)) {
         update(points);
         alreadyAnswered.push(index);
-        alert("Correct!");
+        alert(" Correct!\n" + "+" + points + " points");
         if (currentStep == MAX_STEPS) {
             alert("Congratulations! You win!");
         }
