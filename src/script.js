@@ -1,5 +1,5 @@
 
-const MAX_STEPS = 100;
+const MAX_STEPS = 101;
 var currentStep = 0;
 
 // Progress bar test
@@ -93,11 +93,11 @@ places =
         "question": "YTHS on lyhenne Yliopistojen terveydenhoitosäätiöstä. Totta vai tarua?",\
         "choice1": {\
             "answer1": "Totta",\
-            "isCorrect1": true\
+            "isCorrect1": false\
         },\
         "choice2": {\
             "answer2": "Tarua",\
-            "isCorrect2": false\
+            "isCorrect2": true\
         },\
         "points": 25\
 	},\
@@ -126,6 +126,33 @@ places =
             "isCorrect3": true\
         },\
         "points": 25\
+	},\
+    {\
+        "index": 4,\
+		"name": "Example",\
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do \
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Et \
+                        molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit. \
+                        Tellus id interdum velit laoreet id donec.",\
+        "image" : "../img/valkea.jpg",\
+		"coordinates": {\
+			"lat": 65.03030470762927,\
+			"lng": 25.411492727376906\
+		},\
+        "question": "Kymysys?",\
+        "choice1": {\
+            "answer1": "Vastaus",\
+            "isCorrect1": false\
+        },\
+        "choice2": {\
+            "answer2": "Toinen vastaus",\
+            "isCorrect2": false\
+        },\
+        "choice3": {\
+            "answer3": "Oikea vastaus",\
+            "isCorrect3": true\
+        },\
+        "points": 1\
 	}\
 ]\
 ';
@@ -136,7 +163,7 @@ const createPopupContent = (place) => {
     console.log(place)
     // Joko täällä sisällä nappi popuppiin (jos lähtee toimimaan) tai jollain muulla tavalla.
     if (place.image) { // Voidaan tarkistaa onko paikassa kuva
-        return `<img src='${place.image}' height="auto" width="250px"/><h2>${place.name}</h2><p>${place.description}</p> 
+        return `<img src='${place.image}' height="auto" width="200px"/><h2>${place.name}</h2><p>${place.description}</p> 
                 <button id="${place.name}" onclick="createSurvey(${place.index})">${place.name}-kysely</button>`;
     }
     return `<h2>${place.name}</h2><p>${place.description}</p> 
@@ -151,7 +178,7 @@ const createMarker = (index) => {
     marker.bindPopup(createPopupContent(place)); // Lisätään popup joka luodaan
 };
 
-// Loopataan paikat
+// Loopataan paikat läpi ja luodaan popupit
 for (let i = 0; i < placesJSON.length; i++) {
     createMarker(i);
 }
