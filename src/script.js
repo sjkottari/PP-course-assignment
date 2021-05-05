@@ -50,7 +50,7 @@ places =
             "answer3": "1987",\
             "isCorrect3": true\
         },\
-        "points": 25\
+        "points": 11\
 	},\
 	{\
         "index": 1,\
@@ -76,7 +76,7 @@ places =
             "answer3": "1995",\
             "isCorrect3": false\
         },\
-        "points": 25\
+        "points": 11\
 	},\
     {\
         "index": 2,\
@@ -99,7 +99,7 @@ places =
             "answer2": "Tarua",\
             "isCorrect2": false\
         },\
-        "points": 25\
+        "points": 11\
 	},\
     {\
         "index": 3,\
@@ -125,7 +125,138 @@ places =
             "answer3": "50 liikettä ja ravintolaa.",\
             "isCorrect3": true\
         },\
-        "points": 25\
+        "points": 11\
+	},\
+    {\
+        "index": 4,\
+		"name": "Pekuri",\
+		"description": "Keskustassa oleva Unirestan ravintola Pekuri tarjoaa kaikille, mutta etenkin \
+                        opiskelijoille halpaa ja monipuolista ruokaa. Muita Unirestan ravintoloita on \
+                        Linnanmaan kampuksella, Kontinkankaan kampuksella sekä Oulun Musiikkikeskuksessa.",\
+        "image" : "../img/Pekuri.jpg",\
+		"coordinates": {\
+			"lat": 65.01204085601731,\
+			"lng": 25.46855118348576\
+		},\
+        "question": "Missä ravintola Pekuri sijaitsee?",\
+        "choice1": {\
+            "answer1": "Linnanmaan kampuksella",\
+            "isCorrect1": false\
+        },\
+        "choice2": {\
+            "answer2": "Keskustassa",\
+            "isCorrect2": true\
+        },\
+        "choice3": {\
+            "answer3": "Kontinkankaan kampuksella",\
+            "isCorrect3": false\
+        },\
+        "points": 11\
+	},\
+    {\
+        "index": 5,\
+		"name": "Kontinkankaan kampus",\
+		"description": "Kontinkankaan kampuksen Oulussa muodostavat lääketieteellinen tiedekunta ja biokemian \
+                        ja molekyylilääketieteen tiedekunta sekä Oulun yliopistosairaala.",\
+        "image" : "../img/Kontinkangas.jpg",\
+		"coordinates": {\
+			"lat": 65.00840,\
+			"lng": 25.50995\
+		},\
+        "question": "Mikä tiedekunta ei sijaitse kontinkankaan kampuksella?",\
+        "choice1": {\
+            "answer1": "Teknillinen tiedekunta",\
+            "isCorrect1": true\
+        },\
+        "choice2": {\
+            "answer2": "Biokemian tiedekunta",\
+            "isCorrect2": false\
+        },\
+        "choice3": {\
+            "answer3": "Biokemian tiedekunta",\
+            "isCorrect3": false\
+        },\
+        "points": 11\
+	},\
+    {\
+        "index": 6,\
+		"name": "Linnnanmaan liikuntahalli",\
+		"description": "Linnanmaan liikuntahalli sijaitsee Linnanmaan kaupunginosassa \
+                        n. 7 kilometriä Oulun keskustasta pohjoiseen. \
+                        Lajit: koripallo, kuntosaliharjoittelu, lentopallo, musiikkiliikunta, \
+                        salibandy, sulkapallo ja telinevoimistelu.",\
+        "image" : "../img/Liikuntahalli.jpg",\
+		"coordinates": {\
+			"lat": 65.05523,\
+			"lng": 25.47151\
+		},\
+        "question": "Mitä lajia ei voi harrastaa liikuntahallissa?",\
+        "choice1": {\
+            "answer1": "Telinevoimistelu",\
+            "isCorrect1": false\
+        },\
+        "choice2": {\
+            "answer2": "Salibandy",\
+            "isCorrect2": false\
+        },\
+        "choice3": {\
+            "answer3": "Bouldering",\
+            "isCorrect3": true\
+        },\
+        "points": 11\
+	},\
+    {\
+        "index": 7,\
+		"name": "Frisbeegolf-rata Toppila",\
+		"description": "Meri-Toppilan frisbeegolfrata sijaitsee Oulussa n. viiden kilometrin \
+                        päässä keskustasta Meri-Toppilan kaupunginosassa meren rannassa. Rata \
+                        perustettiin vuonna 2007 ja se on saavuttanut suuren suosion jo lyhyen \
+                        olemassaolonsa aikana. Radalla on pelattu useita valtakunnallisia kilpailuja \
+                        ja kisa toimi vuoden 2016 Euroopanmestaruuskisojen näyttämönä.",\
+        "image" : "../img/MeriToppila.jpg",\
+		"coordinates": {\
+			"lat": 65.05134,\
+			"lng": 25.42742\
+		},\
+        "question": "Minkä vuoden EM kisoissa pelattiin tällä radalla?",\
+        "choice1": {\
+            "answer1": "2019",\
+            "isCorrect1": false\
+        },\
+        "choice2": {\
+            "answer2": "2017",\
+            "isCorrect2": false\
+        },\
+        "choice3": {\
+            "answer3": "2016",\
+            "isCorrect3": true\
+        },\
+        "points": 11\
+	},\
+    {\
+        "index": 8,\
+		"name": "Ainolan puisto",\
+		"description": "Ainolan puisto on keidas keskellä Oulua, Vehmas mutta hoidettu luonto ja virtaava \
+                        vesi tekevät puistosta idyllisen paikan viettää kaunista kesäpäivää.",\
+        "image" : "../img/Ainola.jpg",\
+		"coordinates": {\
+			"lat": 65.01895,\
+			"lng": 25.47804\
+		},\
+        "question": "Ainolan puisto sijaitsee…",\
+        "choice1": {\
+            "answer1": "Keskustassa",\
+            "isCorrect1": true\
+        },\
+        "choice2": {\
+            "answer2": "Linnanmaalla",\
+            "isCorrect2": false\
+        },\
+        "choice3": {\
+            "answer3": "Kontinkankaalla",\
+            "isCorrect3": false\
+        },\
+        "points": 12\
 	}\
 ]\
 ';
