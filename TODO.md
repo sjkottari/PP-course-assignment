@@ -2,11 +2,13 @@
 
 ## TODO
 
-- Pop upeihin kuvia, videoita... Muuta toiminnallisuutta kuin tekstiä? Esimerkiksi vieritettävä popup-näkymä `done`
-- `Popupien klikkaaminen kasvattaa progress barin scorea? Popupeista voisi avautua monivalintakysely, jonka oikein suorittaminen kasvattaisi scorea? Tätä voisi kokeilla toteuttaa. `
-  - Vaihtoehtoisesti sivun reunassa (alhaalla) voisi olla yksi kyselylinkki, josta avautuu popup ja jonka voi suorittaa scoren kasvattamiseksi.
-- Kun score on MAX, tulee koko näkymän popup, jossa saa viimeisen(?) badgen ja kenties fuksipisteitä?
+- Sivun headerin fontin muutos? Muita tyylimuutoksia, jos koetaan tarpeelliseksi?
+- Kartan koko (height) skaalautuu näytön koon ja resoluution mukaan? Miten tän vois toteuttaa?
 - Progress barin edetessä (scorea saadaan) käyttäjä saa erilaisia badgeja (iso popup-ikkuna)
+- Paikkojen kysely-nappi: Annetaanko olla nykyisellään, vai lyhennetäänkö "Kysely"-muotoon?
+- Alert-ikkuna kyselyä suorittaessa muotoilla toisin? Esim. käyttää confirm() tai prompt() -metodia sen sijaan
+  https://www.w3schools.com/jsref/met_win_confirm.asp & https://www.w3schools.com/jsref/met_win_prompt.asp 
+- Ohjelmiston kielen muuttaminen suomeksi? tai pelkästään englanniksi?
 
 ## Useful links
 

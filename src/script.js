@@ -93,11 +93,11 @@ places =
         "question": "YTHS on lyhenne Yliopistojen terveydenhoitosäätiöstä. Totta vai tarua?",\
         "choice1": {\
             "answer1": "Totta",\
-            "isCorrect1": true\
+            "isCorrect1": false\
         },\
         "choice2": {\
             "answer2": "Tarua",\
-            "isCorrect2": false\
+            "isCorrect2": true\
         },\
         "points": 11\
 	},\
@@ -267,7 +267,7 @@ const createPopupContent = (place) => {
     console.log(place)
     // Joko täällä sisällä nappi popuppiin (jos lähtee toimimaan) tai jollain muulla tavalla.
     if (place.image) { // Voidaan tarkistaa onko paikassa kuva
-        return `<img src='${place.image}' height="auto" width="250px"/><h2>${place.name}</h2><p>${place.description}</p> 
+        return `<img src='${place.image}' height="auto" width="200px"/><h2>${place.name}</h2><p>${place.description}</p> 
                 <button id="${place.name}" onclick="createSurvey(${place.index})">${place.name}-kysely</button>`;
     }
     return `<h2>${place.name}</h2><p>${place.description}</p> 
@@ -282,7 +282,7 @@ const createMarker = (index) => {
     marker.bindPopup(createPopupContent(place)); // Lisätään popup joka luodaan
 };
 
-// Loopataan paikat
+// Loopataan paikat läpi ja luodaan popupit
 for (let i = 0; i < placesJSON.length; i++) {
     createMarker(i);
 }
@@ -336,7 +336,7 @@ function checkAnswer(points, token, index) {
     if (token == true && !alreadyAnswered.includes(index)) {
         update(points);
         alreadyAnswered.push(index);
-        alert("Correct!");
+        alert(" Correct!\n" + "+" + points + " points");
         if (currentStep == MAX_STEPS) {
             alert("Congratulations! You win!");
         }
