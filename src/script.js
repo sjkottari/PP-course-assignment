@@ -1,29 +1,17 @@
 
-const MAX_STEPS = 100;
-var currentStep = 0;
+const MAX_POINTS = 100;
+var currentPoints = 0;
 
-// Progress bar test
-function update(points) {
-    var element = document.getElementById("myProgressBar");
-    currentStep += points;
-    var identity = setInterval(scene, 10);
-    function scene() {
-        if (currentStep > MAX_STEPS) {
-            clearInterval(identity);
-        } else {
-            element.style.width = currentStep + '%';
-        }
-    }
-}
+// Karttaelementin luonti. Näkymä keskitetään annettuihin koordinaatteihin.
+var ouluMap = L.map("mapid").setView([65.01207, 25.46508], 11);
 
-// Itse kartan luonti
-var mymap = L.map("mapid").setView([65.01207, 25.46508], 11);
-
+// Lisätään elementtiin itse karttanäkymä (layer). Mukana viite tekijänoikeuksiin.
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(mymap);
+}).addTo(ouluMap);
 
+// Kartalla esiintyvien paikkojen tiedot ja muuhun toiminnallisuuteen liittyvä data. Koottu JSON-muotoon.
 places =
     '[{\
         "index": 0,\
@@ -50,7 +38,7 @@ places =
             "answer3": "1987",\
             "isCorrect3": true\
         },\
-        "points": 11\
+        "points": 10\
 	},\
 	{\
         "index": 1,\
@@ -76,7 +64,7 @@ places =
             "answer3": "1995",\
             "isCorrect3": false\
         },\
-        "points": 11\
+        "points": 10\
 	},\
     {\
         "index": 2,\
@@ -99,7 +87,7 @@ places =
             "answer2": "Tarua",\
             "isCorrect2": true\
         },\
-        "points": 11\
+        "points": 10\
 	},\
     {\
         "index": 3,\
@@ -125,7 +113,7 @@ places =
             "answer3": "50 liikettä ja ravintolaa.",\
             "isCorrect3": true\
         },\
-        "points": 11\
+        "points": 10\
 	},\
     {\
         "index": 4,\
@@ -151,7 +139,7 @@ places =
             "answer3": "Kontinkankaan kampuksella",\
             "isCorrect3": false\
         },\
-        "points": 11\
+        "points": 10\
 	},\
     {\
         "index": 5,\
@@ -176,11 +164,11 @@ places =
             "answer3": "Biokemian tiedekunta",\
             "isCorrect3": false\
         },\
-        "points": 11\
+        "points": 10\
 	},\
     {\
         "index": 6,\
-		"name": "Linnnanmaan liikuntahalli",\
+		"name": "Linnanmaan liikuntahalli",\
 		"description": "Linnanmaan liikuntahalli sijaitsee Linnanmaan kaupunginosassa \
                         n. 7 kilometriä Oulun keskustasta pohjoiseen. \
                         Lajit: koripallo, kuntosaliharjoittelu, lentopallo, musiikkiliikunta, \
@@ -203,7 +191,7 @@ places =
             "answer3": "Bouldering",\
             "isCorrect3": true\
         },\
-        "points": 11\
+        "points": 10\
 	},\
     {\
         "index": 7,\
@@ -213,7 +201,7 @@ places =
                         perustettiin vuonna 2007 ja se on saavuttanut suuren suosion jo lyhyen \
                         olemassaolonsa aikana. Radalla on pelattu useita valtakunnallisia kilpailuja \
                         ja kisa toimi vuoden 2016 Euroopanmestaruuskisojen näyttämönä.",\
-        "image" : "../img/MeriToppila.jpg",\
+        "image" : "../img/frisbeegolf.jpg",\
 		"coordinates": {\
 			"lat": 65.05134,\
 			"lng": 25.42742\
@@ -231,7 +219,7 @@ places =
             "answer3": "2016",\
             "isCorrect3": true\
         },\
-        "points": 11\
+        "points": 10\
 	},\
     {\
         "index": 8,\
@@ -256,66 +244,98 @@ places =
             "answer3": "Kontinkankaalla",\
             "isCorrect3": false\
         },\
-        "points": 12\
+        "points": 10\
+	},\
+    {\
+        "index": 9,\
+		"name": "Linnanmaan kampus",\
+		"description": "Linnanmaan kampus on Oulun yliopiston pääkampus, ja se sisältää monet \
+                        tiedeyksiköt sekä tiedekunnat - mukaan lukien Tieto- ja sähkötekniikan \
+                        tiedekunnan (TST) tilat. TST on maailmanlaajuisesti johtavia ICT-alaa \
+                        kehittäviä tiedeyhteisöjä, joka rakentaa kestävää ja turvallista \
+                        digitaalista tulevaisuutta. Tutkinto-ohjelmia TST:llä ovat mm. \
+                        Tietojenkäsittelytiede sekä tietotekniikka.",\
+        "image" : "../img/linnanmaa-kampus.jpg",\
+		"coordinates": {\
+			"lat": 65.05931353751602,\
+			"lng": 25.466291762398097\
+		},\
+        "question": "Mikä seuraavista tutkinto-ohjelmista ei ole osa TST:tä?",\
+        "choice1": {\
+            "answer1": "Tietojenkäsittelytiede",\
+            "isCorrect1": false\
+        },\
+        "choice2": {\
+            "answer2": "Konetekniikka",\
+            "isCorrect2": true\
+        },\
+        "choice3": {\
+            "answer3": "Elektroniikka- ja tietoliikennetekniikka",\
+            "isCorrect3": false\
+        },\
+        "points": 10\
 	}\
 ]\
 ';
+
+// Parsitaan yllä oleva JSON-data
 let placesJSON = JSON.parse(places);
 
-// Tehdään popup markerille
+// Karttapinnin luonti
+const createMarker = (index) => {
+    let place = placesJSON[index];
+    let { lat, lng } = place.coordinates;
+    let marker = L.marker([lat, lng]).addTo(ouluMap); // Lisätään marker kartalle.
+    marker.bindPopup(createPopupContent(place)); // Yhdistetään marker popup-ikkunaan.
+};
+
+// Popup-ikkunan luominen karttapinnille. Palauttaa Popupin sisällön yllä olevalle metodille.
 const createPopupContent = (place) => {
-    console.log(place)
-    // Joko täällä sisällä nappi popuppiin (jos lähtee toimimaan) tai jollain muulla tavalla.
-    if (place.image) { // Voidaan tarkistaa onko paikassa kuva
+    if (place.image) {
         return `<img src='${place.image}' height="auto" width="200px"/><h2>${place.name}</h2><p>${place.description}</p> 
-                <button id="${place.name}" onclick="createSurvey(${place.index})">${place.name}-kysely</button>`;
+                <button id="${place.name}" onclick="createSurvey(${place.index})">Quiz</button>`;
     }
     return `<h2>${place.name}</h2><p>${place.description}</p> 
-            <button id="${place.name}" onclick="createSurvey(${place.index})">${place.name}-kysely</button>`;
+            <button id="${place.name}" onclick="createSurvey(${place.index})">Quiz</button>`;
 };
 
-// Luodaan marker
-const createMarker = (index) => {
-    let place = placesJSON[index]; // Paikka muuttujaan
-    let { lat, lng } = place.coordinates; // Avataan sijainti paikasta
-    let marker = L.marker([lat, lng]).addTo(mymap); // Luodaan marker sijaintiin
-    marker.bindPopup(createPopupContent(place)); // Lisätään popup joka luodaan
-};
-
-// Loopataan paikat läpi ja luodaan popupit
+// Käydään parsitut paikat läpi, luodaan jokaiselle karttapinni (marker)
 for (let i = 0; i < placesJSON.length; i++) {
     createMarker(i);
 }
 
-// Get the modal
+// Haetaan modal-ikkuna (iso koko näytön Popup)
 var modal = document.getElementById("myModal");
 
-// Get the <span> element that closes the modal
+// Haetaan elementti, jolla suljetaan modal-ikkuna (ruksi)
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on <span> (x), close the modal
+// Modal-ikkunan sulkeminen ruksilla
 span.onclick = function () {
     modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
+// Modal-ikkunan sulkeminen muualta klikkaamalla
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
 
+// Luodaan quiz (kysely). Quiz sijoitetaan modal-ikkunaan.
 function createSurvey(index) {
     modal.style.display = "block";
     var place = placesJSON[index];
     document.getElementById("survey-content").innerHTML = createSurveyContent(place);
 }
 
+// Luodaan sisältö quizille. 
 function createSurveyContent(place) {
     let kysymys = place.question;
     let { answer1, isCorrect1 } = place.choice1;
     let { answer2, isCorrect2 } = place.choice2;
 
+    // Tarkastetaan, annetaanko käyttäjälle kolmatta vastausvaihtoehtoa.
     if (place.hasOwnProperty('choice3')) {
         let { answer3, isCorrect3 } = place.choice3;
 
@@ -330,14 +350,17 @@ function createSurveyContent(place) {
     }
 }
 
+// Taulukko oikeiden vastausten indeksien säilömiseksi
 var alreadyAnswered = [];
 
+// Metodi vastauksen tarkistamiseksi. Käyttäjälle viestitään, oliko vastaus oikea,
+// vai menikö se väärin. Oikean vastauksen antaminen uudestaan estetään.
 function checkAnswer(points, token, index) {
     if (token == true && !alreadyAnswered.includes(index)) {
         update(points);
         alreadyAnswered.push(index);
         alert(" Correct!\n" + "+" + points + " points");
-        if (currentStep == MAX_STEPS) {
+        if (currentPoints == MAX_POINTS) {
             alert("Congratulations! You win!");
         }
     } else if (alreadyAnswered.includes(index) && token == true) {
@@ -347,12 +370,13 @@ function checkAnswer(points, token, index) {
     }
 }
 
-// Generic pinnin luominen kartalle
-// var popup = L.popup();
-// function onMapClick(e) {
-//     popup
-//         .setLatLng(e.latlng)
-//         .setContent("You clicked the map at " + e.latlng.toString())
-//         .openOn(mymap);
-// }
-// mymap.on("click", onMapClick);
+// Pisteet-edistymispalkin päivittäminen suoritettujen quizzien mukaan
+function update(points) {
+    var element = document.getElementById("myProgressBar");
+    currentPoints += points;
+    setInterval(scene, 10);
+    function scene() {
+        element.style.width = currentPoints + '%';
+        element.innerHTML = currentPoints + "%";
+    }
+}
