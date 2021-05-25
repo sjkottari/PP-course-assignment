@@ -1,9 +1,31 @@
+html, body {
+  height: 100%;
+}
+
+#bodycontent {
+  display: flex;
+}
+
+#textcontent {
+  padding: 5px;
+  width: 25%;
+  display: inline-block;
+}
+
 #mapid {
-  height: 530px;
+  width: 70%;
+  height: 83%;
+  position: absolute;
+  bottom: 0;
+  top: auto;
+  right: 0.5%;
+  display: inline-block;
 }
 
 #Progress-status {
-    width: 100%;
+    width: 70%;
+    position: absolute;
+    right: 0.5%;
     background-color:#ddd;
 }
 
@@ -16,12 +38,26 @@
     color: black;
 }
 
-.header {
+#header {
+  display: flex;
+  justify-content: space-between;
   padding: 5px;
-  text-align: left;
   background: #1abc9c;
   color: white;
   font-size: 15px;
+}
+
+.headertext {
+  text-align: left;
+  display: inline-block;
+  /*float: left;*/
+}
+
+.headeraward {
+  /*display: inline-block;*/
+  display: none;
+  margin-right: 20px;
+  /*float: right;*/
 }
 
 .modal {
@@ -60,4 +96,20 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.modalpicture {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.popupimage {
+  height: auto;
+  /*width: 200px;*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
 }

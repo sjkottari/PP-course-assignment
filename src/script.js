@@ -3,13 +3,32 @@ const MAX_POINTS = 100;
 var currentPoints = 0;
 
 // Karttaelementin luonti. Näkymä keskitetään annettuihin koordinaatteihin.
-var ouluMap = L.map("mapid").setView([65.01207, 25.46508], 11);
+var ouluMap = L.map("mapid", {
+    minZoom: 11,
+    maxZoom: 13
+});
 
 // Lisätään elementtiin itse karttanäkymä (layer). Mukana viite tekijänoikeuksiin.
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(ouluMap);
+
+var ZoomViewer = L.Control.extend({
+    onAdd: function(){
+        var gauge = L.DomUtil.create('div');
+        gauge.style.width = '80px';
+        gauge.style.background = 'rgba(255,255,255,0.5)';
+        gauge.style.textAlign = 'left';
+        ouluMap.on('zoomstart zoom zoomend', function(ev){
+            gauge.innerHTML = 'Zoom-taso: ' + ouluMap.getZoom();
+        })
+        return gauge;
+    }
+});
+(new ZoomViewer).addTo(ouluMap);
+
+ouluMap.setView([65.01207, 25.46508], 11);
 
 // Kartalla esiintyvien paikkojen tiedot ja muuhun toiminnallisuuteen liittyvä data. Koottu JSON-muotoon.
 places =
@@ -287,12 +306,17 @@ const createMarker = (index) => {
     let { lat, lng } = place.coordinates;
     let marker = L.marker([lat, lng]).addTo(ouluMap); // Lisätään marker kartalle.
     marker.bindPopup(createPopupContent(place)); // Yhdistetään marker popup-ikkunaan.
+    marker.on("click", flyToLocation(lat, lng));
+
+    function flyToLocation(lat, lng) {
+        ouluMap.flyTo([lat, lng], 11);
+    }
 };
 
 // Popup-ikkunan luominen karttapinnille. Palauttaa Popupin sisällön yllä olevalle metodille.
 const createPopupContent = (place) => {
     if (place.image) {
-        return `<img src='${place.image}' height="auto" width="200px"/><h2>${place.name}</h2><p>${place.description}</p> 
+        return `<img src='${place.image}' class="popupimage"/><h2>${place.name}</h2><p>${place.description}</p> 
                 <button id="${place.name}" onclick="createSurvey(${place.index})">Quiz</button>`;
     }
     return `<h2>${place.name}</h2><p>${place.description}</p> 
@@ -306,6 +330,7 @@ for (let i = 0; i < placesJSON.length; i++) {
 
 // Haetaan modal-ikkuna (iso koko näytön Popup)
 var modal = document.getElementById("myModal");
+var modalcontent = document.getElementById("myModalContent");
 
 // Haetaan elementti, jolla suljetaan modal-ikkuna (ruksi)
 var span = document.getElementsByClassName("close")[0];
@@ -325,6 +350,8 @@ window.onclick = function (event) {
 // Luodaan quiz (kysely). Quiz sijoitetaan modal-ikkunaan.
 function createSurvey(index) {
     modal.style.display = "block";
+    modalcontent.style.width = "40%";
+    modalcontent.style.textAlign = "left";
     var place = placesJSON[index];
     document.getElementById("survey-content").innerHTML = createSurveyContent(place);
 }
@@ -352,6 +379,7 @@ function createSurveyContent(place) {
 
 // Taulukko oikeiden vastausten indeksien säilömiseksi
 var alreadyAnswered = [];
+var award = document.getElementById("headeraward");
 
 // Metodi vastauksen tarkistamiseksi. Käyttäjälle viestitään, oliko vastaus oikea,
 // vai menikö se väärin. Oikean vastauksen antaminen uudestaan estetään.
@@ -359,15 +387,36 @@ function checkAnswer(points, token, index) {
     if (token == true && !alreadyAnswered.includes(index)) {
         update(points);
         alreadyAnswered.push(index);
-        alert(" Correct!\n" + "+" + points + " points");
-        if (currentPoints == MAX_POINTS) {
-            alert("Congratulations! You win!");
+        if (currentPoints < MAX_POINTS) {
+            modalcontent.style.width = "20%";
+            modalcontent.style.textAlign = "center";
+            document.getElementById("survey-content").innerHTML = returnInfo(points);
+        }
+        else if (currentPoints == MAX_POINTS) {
+            //alert("Onneksi olkoon! Voitit pelin. 🏆");
+            document.getElementById("survey-content").innerHTML = returnAward();
+            award.style.display = "inline-block";
         }
     } else if (alreadyAnswered.includes(index) && token == true) {
-        alert("You have already answered!");
+        modalcontent.style.width = "20%";
+        modalcontent.style.textAlign = "center";
+        document.getElementById("survey-content").innerHTML = "Olet jo vastannut tähän kysymykseen";
+        //alert("Olet jo vastannut tähän kysymykseen!");
     } else {
-        alert("Try again!");
+        modalcontent.style.width = "20%";
+        modalcontent.style.textAlign = "center";
+        document.getElementById("survey-content").innerHTML = `<p>Yritä uudestaan! ❌</p>
+                                                               <p>Voit sulkea tämän ikkunan klikkaamalla ruksia tai ympäröivää aluetta</p>`;
+        //alert("Yritä uudestaan! ❌");
     }
+}
+
+function returnInfo(points) {
+    return `<p>Oikein! ✅<br>+${points} pistettä.</p><p>Voit nyt sulkea tämän ikkunan joko klikkaamalla ruksia tai aluetta ikkunan ympärillä</p>`
+}
+
+function returnAward() {
+    return `<p>Olet voittanut taitomerkin!</p><br><img src='../img/goodjob.png' class="modalpicture"/>`
 }
 
 // Pisteet-edistymispalkin päivittäminen suoritettujen quizzien mukaan
