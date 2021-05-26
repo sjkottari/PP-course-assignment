@@ -317,10 +317,10 @@ const createMarker = (index) => {
 const createPopupContent = (place) => {
     if (place.image) {
         return `<img src='${place.image}' class="popupimage"/><h2>${place.name}</h2><p>${place.description}</p> 
-                <button id="${place.name}" onclick="createSurvey(${place.index})">Kysely</button>`;
+                <button id="${place.name}" onclick="createSurvey(${place.index})">Testaa taitosi!</button>`;
     }
     return `<h2>${place.name}</h2><p>${place.description}</p> 
-            <button id="${place.name}" onclick="createSurvey(${place.index})">Kysely</button>`;
+            <button id="${place.name}" onclick="createSurvey(${place.index})">Testaa taitosi!</button>`;
 };
 
 // Käydään parsitut paikat läpi, luodaan jokaiselle karttapinni (marker)
