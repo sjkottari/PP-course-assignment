@@ -35,53 +35,54 @@ places =
     '[{\
         "index": 0,\
         "name": "Toripolliisi",\
-        "description": "Kaarlo Mikkonen on tehnyt pronssisen Toripolliisi-veistoksen, joka paljastettiin \
-                        vuonna 1987. Patsashanketta ajoi eteenpäin Kaija-Rita Koivisto silloisena taidemuseon \
-                        näyttelysihteerinä. Teoksella viitataan torilla järjestystä valvonneisiin kolmeen \
-                        toripoliisiin vuosina 1934-79. (Mitat 220 x 150 x 112 cm)",\
+        "description": "Todellisen oululaisen ikonin, Toripolliisin, on tehnyt Kaarlo Mikkonen vuonna 1987. Veistos \
+                        on valettu pronssista, ja se on 220cm korkea. Nippelitietoa: n. 75% ihmisistä \
+                        tuntee houkutusta selfien ottamiseksi Toripolliisin kanssa!",\
         "image" : "../img/Toripolliisi.jpg",\
         "coordinates": {\
             "lat": 65.01331428120065,\
             "lng": 25.46478943017074\
         },\
-        "question": "Minä vuonna Toripolliisi-veistos on valmistunut?",\
+        "question": "Mihin seuraavista Toripolliisi-teoksella viitataan?",\
         "choice1": {\
-            "answer1": "1934",\
+            "answer1": "Kauppahallissa järjestystä valvoneisiin järjestysmiehiin",\
             "isCorrect1": false\
         },\
         "choice2": {\
-            "answer2": "1979",\
-            "isCorrect2": false\
+            "answer2": "Torilla järjestystä vuosina 1934-1979 valvoneisiin toripoliiseihin",\
+            "isCorrect2": true\
         },\
         "choice3": {\
-            "answer3": "1987",\
-            "isCorrect3": true\
+            "answer3": "Kadun toisella puolella olevaan Toripolliisi-baariin",\
+            "isCorrect3": false\
         },\
         "points": 10\
 	},\
 	{\
         "index": 1,\
 		"name": "Teekkaritalo",\
-		"description": "Teekkaritalo on vuokrakiinteistö, jota vuokrataan yksityisille, yhteisöille ja \
-                        yrityksille. Teekkaritalo on vakiintunut oululaisen Teekkariperinteen asemaan, \
-                        ja se on rakennettu 1992-1993.",\
+		"description": "Teekkaritalo on Oulun Kaijonharjussa sijaitseva kokoontumispaikka, johon jokainen fuksi \
+                        eksyy vähintään kerran ensimmäisen opiskeluvuotensa aikana. Teekkaritalolla järjestetään \
+                        milloin pippaloita, milloin saunailtoja, mutta aina on tunnelma katossa. Teekkaritalo \
+                        on rakennettu vuosina 1992-1993, ja sillä on vakiintunut asema oululaisessa teekkariperinteessä. \
+                        Ylläpidosta huolehtii Oulun Teekkariyhdistys ry.",\
         "image" : "../img/teekkaritalo.jpg",\
 		"coordinates": {\
 			"lat": 65.06398519487213,\
 			"lng": 25.483934585339266\
 		},\
-        "question": "Minä vuonna Teekkaritalo on valmistunut?",\
+        "question": "Mikä erikoinen liikennemerkki on Teekkaritalon pihamaalla?",\
         "choice1": {\
-            "answer1": "1987",\
+            "answer1": "Hauskasta menosta ilmoittava merkki",\
             "isCorrect1": false\
         },\
         "choice2": {\
-            "answer2": "1993",\
-            "isCorrect2": true\
+            "answer2": "Lähistön oravista varoittava merkki",\
+            "isCorrect2": false\
         },\
         "choice3": {\
-            "answer3": "1995",\
-            "isCorrect3": false\
+            "answer3": "Oksentavista teekkareista varoittava merkki",\
+            "isCorrect3": true\
         },\
         "points": 10\
 	},\
@@ -89,9 +90,9 @@ places =
         "index": 2,\
 		"name": "YTHS",\
 		"description": "Ylioppilaiden terveydenhoitosäätiö (YTHS) tarjoaa terveyden- ja sairaanhoidon \
-                        palveluita perustutkintoa suorittaville yliopisto- ja korkeakouluopiskelijoille. \
-                        Palvelut ovat monipuolisia (terveystarkastukset, suun terveydenhoito, mielenterveys, \
-                        yms.)",\
+                        palveluita perustutkintoa suorittaville yliopisto- ja muille korkeakouluopiskelijoille. \
+                        Palvelut ovat monipuolisia, ja ne kattavat esimerkiksi perusterveyden tarkastukset, \
+                        suun terveydenhuollon sekä mielenterveyden",\
         "image" : "../img/yths.jpg",\
 		"coordinates": {\
 			"lat": 65.05788651804497,\
@@ -111,32 +112,34 @@ places =
     {\
         "index": 3,\
 		"name": "Valkea",\
-		"description": "Valkea on ainutlaatuinen kahdesta korttelista ja niitä yhdistävästä katetusta \
-                        Kesäkadusta muodostuva noin 50 liikkeen ja ravintolan kauppakeskuskokonaisuus \
-                        Oulun sydämessä.",\
+		"description": "Valkea on Pakkahuoneenkadun ja Kauppurienkadun välissä sijaitseva, kahdesta korttelista \
+                        ja niitä yhdistävästä katetusta Kesäkadusta muodostuva noin 50 liikkeen ja ravintolan \
+                        kauppakeskuskokonaisuus. Liikkeitä löytyy joka lähtöön: aina kahviloista useisiin \
+                        vaatekauppoihin. Valkea sijaitsee aivan Oulun keskustan sydämessä, ja siellä voidaan \
+                        monipuolisia yleisötapahtumia",\
         "image" : "../img/valkea.jpg",\
 		"coordinates": {\
 			"lat": 65.011631,\
 			"lng": 25.472617\
 		},\
-        "question": "Valkeassa on noin...",\
+        "question": "Valkeaan pääsee muualtakin kuin katutasolta. Mistä muualta?",\
         "choice1": {\
-            "answer1": "60",\
+            "answer1": "Viereisten talojen katolta köysiradalla",\
             "isCorrect1": false\
         },\
         "choice2": {\
-            "answer2": "40",\
-            "isCorrect2": false\
+            "answer2": "Kallioon louhitusta Kivisydän-parkkihallista",\
+            "isCorrect2": true\
         },\
         "choice3": {\
-            "answer3": "50 liikettä ja ravintolaa.",\
-            "isCorrect3": true\
+            "answer3": "Otto Karhin puiston läpi kulkevasta kanaalista",\
+            "isCorrect3": false\
         },\
         "points": 10\
 	},\
     {\
         "index": 4,\
-		"name": "Pekuri",\
+		"name": "Ravintola Pekuri",\
 		"description": "Keskustassa oleva Unirestan ravintola Pekuri tarjoaa kaikille, mutta etenkin \
                         opiskelijoille halpaa ja monipuolista ruokaa. Muita Unirestan ravintoloita on \
                         Linnanmaan kampuksella, Kontinkankaan kampuksella sekä Oulun Musiikkikeskuksessa.",\
@@ -145,32 +148,30 @@ places =
 			"lat": 65.01204085601731,\
 			"lng": 25.46855118348576\
 		},\
-        "question": "Missä ravintola Pekuri sijaitsee?",\
+        "question": "Saako Pekurissa opiskelija-alennusta lounaaseen?",\
         "choice1": {\
-            "answer1": "Linnanmaan kampuksella",\
+            "answer1": "Ei, koska se ei sijaitse millään kampuksella",\
             "isCorrect1": false\
         },\
         "choice2": {\
-            "answer2": "Keskustassa",\
+            "answer2": "No totta kai!",\
             "isCorrect2": true\
-        },\
-        "choice3": {\
-            "answer3": "Kontinkankaan kampuksella",\
-            "isCorrect3": false\
         },\
         "points": 10\
 	},\
     {\
         "index": 5,\
 		"name": "Kontinkankaan kampus",\
-		"description": "Kontinkankaan kampuksen Oulussa muodostavat lääketieteellinen tiedekunta ja biokemian \
-                        ja molekyylilääketieteen tiedekunta sekä Oulun yliopistosairaala.",\
+		"description": "Kontinkankaan kampuksen Oulussa muodostavat lääketieteellinen tiedekunta sekä biokemian \
+                        ja molekyylilääketieteen tiedekunta. Samalla tontilla sijaitsee myös Oulun Yliopistollinen \
+                        sairaala, eli jos Wappua viettäessä tulee isompi pipi, suunta on todennäköisesti tänne päin. \
+                        Lääkiksen fukseille tämä paikka tulee hyvinkin tutuksi 😎",\
         "image" : "../img/Kontinkangas.jpg",\
 		"coordinates": {\
 			"lat": 65.00840,\
 			"lng": 25.50995\
 		},\
-        "question": "Mikä tiedekunta ei sijaitse kontinkankaan kampuksella?",\
+        "question": "Mikä tiedekunta ei sijaitse Kontinkankaan kampuksella?",\
         "choice1": {\
             "answer1": "Teknillinen tiedekunta",\
             "isCorrect1": true\
@@ -180,7 +181,7 @@ places =
             "isCorrect2": false\
         },\
         "choice3": {\
-            "answer3": "Biokemian tiedekunta",\
+            "answer3": "Lääketieteellinen tiedekunta",\
             "isCorrect3": false\
         },\
         "points": 10\
@@ -188,16 +189,18 @@ places =
     {\
         "index": 6,\
 		"name": "Linnanmaan liikuntahalli",\
-		"description": "Linnanmaan liikuntahalli sijaitsee Linnanmaan kaupunginosassa \
-                        n. 7 kilometriä Oulun keskustasta pohjoiseen. \
-                        Lajit: koripallo, kuntosaliharjoittelu, lentopallo, musiikkiliikunta, \
-                        salibandy, sulkapallo ja telinevoimistelu.",\
+		"description": "Linnanmaan liikuntahalli sijaitsee Linnanmaan kaupunginosassa n. 7 kilometriä \
+                        Oulun keskustasta pohjoiseen, lähes yliopiston vieressä. Liikuntahallilla voi \
+                        harrastaa monia lajeja kuten koripalloa, lentopalloa, salibandya, sulkapalloa \
+                        sekä telinevoimistelua. Mahdollisuudet musiikkiliikunnalle sekä kuntosalilla \
+                        käymiseen löytyvät myös. Useat opiskelijajärjestöt tapaavat järjestää täällä \
+                        ryhmäliikuntaa.", \
         "image" : "../img/Liikuntahalli.jpg",\
 		"coordinates": {\
 			"lat": 65.05523,\
 			"lng": 25.47151\
 		},\
-        "question": "Mitä lajia ei voi harrastaa liikuntahallissa?",\
+        "question": "Mitä lajia ei voi harrastaa Linnanmaan liikuntahallissa?",\
         "choice1": {\
             "answer1": "Telinevoimistelu",\
             "isCorrect1": false\
@@ -214,53 +217,56 @@ places =
 	},\
     {\
         "index": 7,\
-		"name": "Frisbeegolf-rata Toppila",\
-		"description": "Meri-Toppilan frisbeegolfrata sijaitsee Oulussa n. viiden kilometrin \
-                        päässä keskustasta Meri-Toppilan kaupunginosassa meren rannassa. Rata \
-                        perustettiin vuonna 2007 ja se on saavuttanut suuren suosion jo lyhyen \
+		"name": "Toppilan frisbeegolf-rata",\
+		"description": "(Meri-)Toppilan frisbeegolfrata sijaitsee Meri-Toppilan kaupunginosassa \
+                        n. 5 kilometrin päässä Oulun keskustasta. Rata perustettiin vuonna 2007 \
+                        ja se on saavuttanut suuren suosion etenkin nuorison keskuudessa lyhyen \
                         olemassaolonsa aikana. Radalla on pelattu useita valtakunnallisia kilpailuja \
-                        ja kisa toimi vuoden 2016 Euroopanmestaruuskisojen näyttämönä.",\
+                        ja se toimi vuoden 2016 Euroopanmestaruuskisojen näyttämönä. Ja ovathan \
+                        kumpuilevat niityt merellisessä maisemassa kaunista katseltavaa!",\
         "image" : "../img/frisbeegolf.jpg",\
 		"coordinates": {\
 			"lat": 65.05134,\
 			"lng": 25.42742\
 		},\
-        "question": "Minkä vuoden EM kisoissa pelattiin tällä radalla?",\
+        "question": "Mikä liitokiekko eli frisbee on paras pitkien matkojen heittoihin?",\
         "choice1": {\
-            "answer1": "2019",\
+            "answer1": "Putteri",\
             "isCorrect1": false\
         },\
         "choice2": {\
-            "answer2": "2017",\
-            "isCorrect2": false\
+            "answer2": "Pituusdriveri",\
+            "isCorrect2": true\
         },\
         "choice3": {\
-            "answer3": "2016",\
-            "isCorrect3": true\
+            "answer3": "Väylädriveri",\
+            "isCorrect3": false\
         },\
         "points": 10\
 	},\
     {\
         "index": 8,\
 		"name": "Ainolan puisto",\
-		"description": "Ainolan puisto on keidas keskellä Oulua, Vehmas mutta hoidettu luonto ja virtaava \
-                        vesi tekevät puistosta idyllisen paikan viettää kaunista kesäpäivää.",\
+		"description": "Ainolan puisto on kaunis puistoalue Oulun Hupisaarilla. Vehmas, mutta hyvin \
+                        hoidettu luonto ja virtaava vesi tekevät puistosta idyllisen paikan viettää \
+                        kaunista kesäpäivää. Paikka on myös opiskelijoiden suosiossa etenkin Wapun \
+                        aikaan, legendat kertovat juhlimisesta läpi lyhyen yön.",\
         "image" : "../img/Ainola.jpg",\
 		"coordinates": {\
 			"lat": 65.01895,\
 			"lng": 25.47804\
 		},\
-        "question": "Ainolan puisto sijaitsee…",\
+        "question": "Mikä seuraavista löytyy Ainolan puistosta?",\
         "choice1": {\
-            "answer1": "Keskustassa",\
+            "answer1": "Pohjois-Pohjanmaan museo sekä Oulun taidemuseo",\
             "isCorrect1": true\
         },\
         "choice2": {\
-            "answer2": "Linnanmaalla",\
+            "answer2": "Hupisaarten teatteri",\
             "isCorrect2": false\
         },\
         "choice3": {\
-            "answer3": "Kontinkankaalla",\
+            "answer3": "Oulun kasvitieteellinen puutarha",\
             "isCorrect3": false\
         },\
         "points": 10\
@@ -306,11 +312,11 @@ const createMarker = (index) => {
     let { lat, lng } = place.coordinates;
     let marker = L.marker([lat, lng]).addTo(ouluMap); // Lisätään marker kartalle.
     marker.bindPopup(createPopupContent(place)); // Yhdistetään marker popup-ikkunaan.
-    marker.on("click", flyToLocation(lat, lng));
-
-    function flyToLocation(lat, lng) {
-        ouluMap.flyTo([lat, lng], 11);
-    }
+    
+    //marker.on("click", flyToLocation(lat, lng));
+    //function flyToLocation(lat, lng) {
+    //    ouluMap.flyTo([lat, lng], 11);
+    //}
 };
 
 // Popup-ikkunan luominen karttapinnille. Palauttaa Popupin sisällön yllä olevalle metodille.
@@ -393,7 +399,6 @@ function checkAnswer(points, token, index) {
             document.getElementById("survey-content").innerHTML = returnInfo(points);
         }
         else if (currentPoints == MAX_POINTS) {
-            //alert("Onneksi olkoon! Voitit pelin. 🏆");
             document.getElementById("survey-content").innerHTML = returnAward();
             award.style.display = "inline-block";
         }
@@ -401,13 +406,11 @@ function checkAnswer(points, token, index) {
         modalcontent.style.width = "20%";
         modalcontent.style.textAlign = "center";
         document.getElementById("survey-content").innerHTML = "Olet jo vastannut tähän kysymykseen";
-        //alert("Olet jo vastannut tähän kysymykseen!");
     } else {
         modalcontent.style.width = "20%";
         modalcontent.style.textAlign = "center";
         document.getElementById("survey-content").innerHTML = `<p>Yritä uudestaan! ❌</p>
                                                                <p>Voit sulkea tämän ikkunan klikkaamalla ruksia tai ympäröivää aluetta</p>`;
-        //alert("Yritä uudestaan! ❌");
     }
 }
 
