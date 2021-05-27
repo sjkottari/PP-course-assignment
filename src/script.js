@@ -36,7 +36,7 @@ places =
         "index": 0,\
         "name": "Toripolliisi",\
         "description": "Todellisen oululaisen ikonin, Toripolliisin, on tehnyt Kaarlo Mikkonen vuonna 1987. Veistos \
-                        on valettu pronssista, ja se on 220cm korkea. Nippelitietoa: n. 75% ihmisistä \
+                        on valettu pronssista, ja se on 220cm korkea. Nippelitietoa: noin 75% ihmisistä \
                         tuntee houkutusta selfien ottamiseksi Toripolliisin kanssa!",\
         "image" : "../img/Toripolliisi.jpg",\
         "coordinates": {\
@@ -91,8 +91,8 @@ places =
 		"name": "YTHS",\
 		"description": "Ylioppilaiden terveydenhoitosäätiö (YTHS) tarjoaa terveyden- ja sairaanhoidon \
                         palveluita perustutkintoa suorittaville yliopisto- ja muille korkeakouluopiskelijoille. \
-                        Palvelut ovat monipuolisia, ja ne kattavat esimerkiksi perusterveyden tarkastukset, \
-                        suun terveydenhuollon sekä mielenterveyden",\
+                        Palvelut ovat monipuolisia, ja ne kattavat perusterveyden tarkastukset, \
+                        suun terveydenhuollon sekä mielenterveyden palvelut.",\
         "image" : "../img/yths.jpg",\
 		"coordinates": {\
 			"lat": 65.05788651804497,\
@@ -116,7 +116,7 @@ places =
                         ja niitä yhdistävästä katetusta Kesäkadusta muodostuva noin 50 liikkeen ja ravintolan \
                         kauppakeskuskokonaisuus. Liikkeitä löytyy joka lähtöön: aina kahviloista useisiin \
                         vaatekauppoihin. Valkea sijaitsee aivan Oulun keskustan sydämessä, ja siellä voidaan \
-                        monipuolisia yleisötapahtumia",\
+                        järjestää monipuolisia yleisötapahtumia",\
         "image" : "../img/valkea.jpg",\
 		"coordinates": {\
 			"lat": 65.011631,\
@@ -189,7 +189,7 @@ places =
     {\
         "index": 6,\
 		"name": "Linnanmaan liikuntahalli",\
-		"description": "Linnanmaan liikuntahalli sijaitsee Linnanmaan kaupunginosassa n. 7 kilometriä \
+		"description": "Linnanmaan liikuntahalli sijaitsee Linnanmaan kaupunginosassa noin 7 kilometriä \
                         Oulun keskustasta pohjoiseen, lähes yliopiston vieressä. Liikuntahallilla voi \
                         harrastaa monia lajeja kuten koripalloa, lentopalloa, salibandya, sulkapalloa \
                         sekä telinevoimistelua. Mahdollisuudet musiikkiliikunnalle sekä kuntosalilla \
@@ -219,7 +219,7 @@ places =
         "index": 7,\
 		"name": "Toppilan frisbeegolf-rata",\
 		"description": "(Meri-)Toppilan frisbeegolfrata sijaitsee Meri-Toppilan kaupunginosassa \
-                        n. 5 kilometrin päässä Oulun keskustasta. Rata perustettiin vuonna 2007 \
+                        noin 5 kilometrin päässä Oulun keskustasta. Rata perustettiin vuonna 2007 \
                         ja se on saavuttanut suuren suosion etenkin nuorison keskuudessa lyhyen \
                         olemassaolonsa aikana. Radalla on pelattu useita valtakunnallisia kilpailuja \
                         ja se toimi vuoden 2016 Euroopanmestaruuskisojen näyttämönä. Ja ovathan \
@@ -250,7 +250,7 @@ places =
 		"description": "Ainolan puisto on kaunis puistoalue Oulun Hupisaarilla. Vehmas, mutta hyvin \
                         hoidettu luonto ja virtaava vesi tekevät puistosta idyllisen paikan viettää \
                         kaunista kesäpäivää. Paikka on myös opiskelijoiden suosiossa etenkin Wapun \
-                        aikaan, legendat kertovat juhlimisesta läpi lyhyen yön.",\
+                        aikaan, legendat kertovat juhlimisesta läpi toukokuisen lyhyen yön.",\
         "image" : "../img/Ainola.jpg",\
 		"coordinates": {\
 			"lat": 65.01895,\
@@ -278,7 +278,7 @@ places =
                         tiedeyksiköt sekä tiedekunnat - mukaan lukien Tieto- ja sähkötekniikan \
                         tiedekunnan (TST) tilat. TST on maailmanlaajuisesti johtavia ICT-alaa \
                         kehittäviä tiedeyhteisöjä, joka rakentaa kestävää ja turvallista \
-                        digitaalista tulevaisuutta. Tutkinto-ohjelmia TST:llä ovat mm. \
+                        digitaalista tulevaisuutta. Tutkinto-ohjelmia TST:llä ovat muun muassa \
                         Tietojenkäsittelytiede sekä tietotekniikka.",\
         "image" : "../img/linnanmaa-kampus.jpg",\
 		"coordinates": {\
