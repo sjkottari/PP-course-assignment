@@ -81,7 +81,7 @@ places =
             "isCorrect2": false\
         },\
         "choice3": {\
-            "answer3": "Oksentavista teekkareista varoittava merkki",\
+            "answer3": "Konttivista teekkareista varoittava merkki",\
             "isCorrect3": true\
         },\
         "points": 10\
@@ -312,11 +312,6 @@ const createMarker = (index) => {
     let { lat, lng } = place.coordinates;
     let marker = L.marker([lat, lng]).addTo(ouluMap); // Lisätään marker kartalle.
     marker.bindPopup(createPopupContent(place)); // Yhdistetään marker popup-ikkunaan.
-    
-    //marker.on("click", flyToLocation(lat, lng));
-    //function flyToLocation(lat, lng) {
-    //    ouluMap.flyTo([lat, lng], 11);
-    //}
 };
 
 // Popup-ikkunan luominen karttapinnille. Palauttaa Popupin sisällön yllä olevalle metodille.
@@ -419,7 +414,7 @@ function returnInfo(points) {
 }
 
 function returnAward() {
-    return `<p>Olet voittanut taitomerkin!</p><br><img src='../img/goodjob.png' class="modalpicture"/>`
+    return `<p>Olet voittanut taitomerkin!</p><br><img src='../img/goodjob2.png' class="modalpicture"/>`
 }
 
 // Pisteet-edistymispalkin päivittäminen suoritettujen quizzien mukaan
